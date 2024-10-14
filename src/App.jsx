@@ -1,8 +1,11 @@
 import "./App.css";
 import Table from "./components/table/table";
 import Chart from "./components/chart/chart";
+import { useState } from "react";
+import { Sidebar } from "./components/sidebar/sidebar";
+
 function App() {
-    const data = [
+    const [data, setData] = useState([
         {
             id: 1,
             name: "Иван Иванов Иванович",
@@ -42,7 +45,7 @@ function App() {
         {
             id: 4,
             name: "Анна Аннова Аннововна",
-            dob: "2005-04-04",
+            dob: "2000-04-04",
             address: "Москва",
             position: "менеджер",
             sex: "ж",
@@ -51,13 +54,14 @@ function App() {
             phoneNumber: "+7 999 999 99 99",
             email: "qWQpC@example.com",
         },
-    ];
+    ]);
 
     return (
         <div>
+            <Sidebar />
             <Table data={data} />
 
-            {/* <Chart dataset={data} /> */}
+            <Chart dataset={data} />
         </div>
     );
 }
